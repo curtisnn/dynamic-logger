@@ -1,0 +1,26 @@
+{
+  "name": "dynamic-logger",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "author": "Curtis Nielsen <curtis@pugapuma.com> (http://www.pugapuma.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "4.0.1"
+  },
+    "repository": {
+        "type": "git",
+        "url": "get+https://github.com/curtisnn/dynamic-logger.git"
+    },
+    
+    
+  "dependencies": {
+    "fs-extra": "4.0.2",
+    "moment": "2.19.2",
+    "winston": "2.4.0"
+  }
+}
