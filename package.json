@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "test": "mocha --reporter spec",
-      "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
+    "test": "mocha --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "author": "Curtis Nielsen <curtis@pugapuma.com> (http://www.pugapuma.com)",
   "license": "ISC",
@@ -13,14 +13,14 @@
     "chai": "4.1.2",
     "mocha": "4.0.1"
   },
-    "repository": {
-        "type": "git",
-        "url": "get+https://github.com/curtisnn/dynamic-logger.git"
-    },
-    
-    
+  "repository": {
+    "type": "git",
+    "url": "get+https://github.com/curtisnn/dynamic-logger.git"
+  },
   "dependencies": {
+    "coveralls": "3.0.0",
     "fs-extra": "4.0.2",
+    "istanbul": "0.4.5",
     "moment": "2.19.2",
     "winston": "2.4.0"
   }
