@@ -10,7 +10,7 @@
  *      data: {}    //the object or string to print along with the text message.
  *      tags: [<name>, <name>, <name>]  //Conditional tags whether this message should print. If any are active, it will print.
  *      full_path: true             //prints the full path of the file, default is false, which only prints the file name.
-*/
+ */
 
 /**************************
  * Next steps
@@ -94,8 +94,6 @@ console.log("got log level of", log.getLogLevel());
      *************************/
     var tags = {};
 
-
-
     function _info() {
         handleLogging(arguments, log.info, getCallerFunctionData());
     }
@@ -109,15 +107,15 @@ console.log("got log level of", log.getLogLevel());
     function _setTags(new_tags) {
         return new Promise(function(fulfill, reject) {
 
-            var old_tags = require(log.tag_file);
+            let old_tags = require(log.tag_file);
 
-            for (var property in new_tags) {
+            for (let property in new_tags) {
                 if (new_tags.hasOwnProperty(property) && old_tags.hasOwnProperty(property)) {
                     old_tags[property].enabled = new_tags[property].enabled;
                 }
             }
 
-            var filepath = 'server/utils/' + log.tag_file;
+            let filepath = log.tag_file;
             //KUDOS https://stackoverflow.com/questions/5670752/how-can-i-pretty-print-json-using-node-js
             fs.writeFile(filepath, JSON.stringify(old_tags, null, 4), function (err) {
                 if (err) {
@@ -141,6 +139,13 @@ console.log("got log level of", log.getLogLevel());
         tags = require (log.tag_file);
         _info("Environment:", {data:process.env.NODE_ENV, tags:['logging']});
     }
+    function _getSettings() {
+        return {
+            level: log.level,
+            tag_file: log.tag_file,
+            tags: tags
+        };
+    }
     /**************************
      * exported log functions.
      *************************/
@@ -152,6 +157,7 @@ console.log("got log level of", log.getLogLevel());
 
     module.exports.setTags = _setTags;
     module.exports.getTags= _getTags;
+    module.exports.getSettings = _getSettings;
 
     /**************************
      * Helper functions
